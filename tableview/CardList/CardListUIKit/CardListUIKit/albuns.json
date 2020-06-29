@@ -1,0 +1,63 @@
+[
+    {
+      "name": "Please Please Me",
+      "cover": "please_please_me",
+      "year": 1963
+    },
+    {
+      "name": "With The Beatles",
+      "cover": "with_the_beatles",
+      "year": 1963
+    },
+    {
+      "name": "A Hard Day's Night",
+      "cover": "hard_days_night",
+      "year": 1964
+    },
+    {
+      "name": "Beatles For Sale",
+      "cover": "beatles_for_sale",
+      "year": 1964
+    },
+    {
+      "name": "Help!",
+      "cover": "help",
+      "year": 1965
+    },
+    {
+      "name": "Rubber Soul",
+      "cover": "rubber_soul",
+      "year": 1965
+    },
+    {
+      "name": "Revolver",
+      "cover": "revolver",
+      "year": 1966
+    },
+    {
+      "name": "A Collection Of Beatles Oldies",
+      "cover": "a_collection-of-beatles-oldies",
+      "year": 1966
+    },
+    {
+      "name": "Sgt Pepper's Lonely Hearts Club Band",
+      "cover": "sgt_pepper",
+      "year": 1967
+    },
+    {
+      "name": "Magical Mystery Tour",
+      "cover": "magical_mystery_tour",
+      "year": 1967
+    },
+    {
+      "name": "The Beatles (White Album)",
+      "cover": "white_album",
+      "year": 1968
+    },
+    {
+      "name": "Yellow Submarine",
+      "cover": "yellow_submarine",
+      "year": 1969
+    },
+
+]
