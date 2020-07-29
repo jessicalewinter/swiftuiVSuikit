@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0925150524D1A209009E486D /* ButtonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925150424D1A209009E486D /* ButtonDefault.swift */; };
+		0946A78424D072DB006526FE /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946A78324D072DB006526FE /* CountdownView.swift */; };
+		094AB1E124D0E475003B724A /* StartTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AB1E024D0E475003B724A /* StartTimeView.swift */; };
+		094AB1E324D0EDF1003B724A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AB1E224D0EDF1003B724A /* TestView.swift */; };
+		094AB1E524D11476003B724A /* QuarantineDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AB1E424D11476003B724A /* QuarantineDurationView.swift */; };
+		094AB1E824D11595003B724A /* TitleDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AB1E724D11595003B724A /* TitleDefault.swift */; };
 		09E52BEA24C8E4D40041C892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E52BE924C8E4D40041C892 /* AppDelegate.swift */; };
 		09E52BEC24C8E4D40041C892 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E52BEB24C8E4D40041C892 /* SceneDelegate.swift */; };
 		09E52BEE24C8E4D40041C892 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E52BED24C8E4D40041C892 /* ContentView.swift */; };
@@ -16,6 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0925150424D1A209009E486D /* ButtonDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDefault.swift; sourceTree = "<group>"; };
+		0946A78324D072DB006526FE /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		094AB1E024D0E475003B724A /* StartTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTimeView.swift; sourceTree = "<group>"; };
+		094AB1E224D0EDF1003B724A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		094AB1E424D11476003B724A /* QuarantineDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarantineDurationView.swift; sourceTree = "<group>"; };
+		094AB1E724D11595003B724A /* TitleDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDefault.swift; sourceTree = "<group>"; };
 		09E52BE624C8E4D40041C892 /* TimeOnQuarantine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeOnQuarantine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E52BE924C8E4D40041C892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09E52BEB24C8E4D40041C892 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +49,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		094AB1E624D11561003B724A /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				094AB1E724D11595003B724A /* TitleDefault.swift */,
+				0925150424D1A209009E486D /* ButtonDefault.swift */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		09D95D4F24D1283500A947C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				094AB1E024D0E475003B724A /* StartTimeView.swift */,
+				094AB1E424D11476003B724A /* QuarantineDurationView.swift */,
+				09E52BED24C8E4D40041C892 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		09E52BDD24C8E4D40041C892 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +87,12 @@
 		09E52BE824C8E4D40041C892 /* TimeOnQuarantine */ = {
 			isa = PBXGroup;
 			children = (
+				09D95D4F24D1283500A947C3 /* Views */,
+				094AB1E624D11561003B724A /* Title */,
 				09E52BE924C8E4D40041C892 /* AppDelegate.swift */,
 				09E52BEB24C8E4D40041C892 /* SceneDelegate.swift */,
-				09E52BED24C8E4D40041C892 /* ContentView.swift */,
+				0946A78324D072DB006526FE /* CountdownView.swift */,
+				094AB1E224D0EDF1003B724A /* TestView.swift */,
 				09E52BEF24C8E4DE0041C892 /* Assets.xcassets */,
 				09E52BF424C8E4DE0041C892 /* LaunchScreen.storyboard */,
 				09E52BF724C8E4DE0041C892 /* Info.plist */,
@@ -146,8 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094AB1E524D11476003B724A /* QuarantineDurationView.swift in Sources */,
+				0925150524D1A209009E486D /* ButtonDefault.swift in Sources */,
+				094AB1E324D0EDF1003B724A /* TestView.swift in Sources */,
 				09E52BEA24C8E4D40041C892 /* AppDelegate.swift in Sources */,
+				094AB1E124D0E475003B724A /* StartTimeView.swift in Sources */,
+				094AB1E824D11595003B724A /* TitleDefault.swift in Sources */,
 				09E52BEC24C8E4D40041C892 /* SceneDelegate.swift in Sources */,
+				0946A78424D072DB006526FE /* CountdownView.swift in Sources */,
 				09E52BEE24C8E4D40041C892 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
