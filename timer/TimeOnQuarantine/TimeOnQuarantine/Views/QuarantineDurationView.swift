@@ -17,28 +17,34 @@ struct QuarantineDurationView: View {
         return formatter
     }
     
+    @State var year: Int = 0
+    @State var month: Int = 0
+    @State var day: Int = 0
+    
     @State var hours: Int = 0
     @State var minutes: Int = 0
     @State var seconds: Int = 0
+    
     @State var timerIsPaused: Bool = true
 
     @State var timer: Timer? = nil
     let calendar = Calendar(identifier: .gregorian)
     
     var components: DateComponents {
-        let components = calendar.dateComponents([.calendar, .year, .month, .day], from: date)
+        let components = calendar.dateComponents([.calendar, .year, .month, .day, .hour, .minute, .second], from: date, to: Date())
         return components
     }
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                
+                
                 Text("Quarantine duration")
                 .font(.title)
                 .padding(.vertical, 20)
                 .frame(maxWidth: geometry.size.width - 20)
                 
-                Text("\(self.hours):\(self.minutes):\(self.seconds)").padding(.all)
                 
                 VStack {
                     Text("Isolated since")
@@ -51,27 +57,49 @@ struct QuarantineDurationView: View {
                 }
                 .padding(.bottom, 20)
                 
-                Text("Year: \(self.components.year!), Month: \(self.components.month!)")
                 
-                ButtonDefault(width: geometry.size.width * 0.7, title: "Start my suffering") {
-                    print("start")
-                    self.startTimer()
-                }
+                HStack {
+                    YearView(number: self.year, title: "year")
+                    Text(":")
+                        .font(.title)
+                    YearView(number: self.month, title: "month")
+                    Text(":")
+                        .font(.title)
+                    YearView(number: self.day, title: "day")
+                }.frame(height: 100)
+                
+                HStack {
+                    DayView(number: self.hours, title: "hrs")
+                    Text(":")
+                        .font(.largeTitle)
+                    DayView(number: self.minutes, title: "min")
+                    Text(":")
+                        .font(.largeTitle)
+                    DayView(number: self.seconds, title: "sec")
+                }.frame(height: 100)
+                
                 
                 ButtonDefault(width: geometry.size.width * 0.7, title: "Stop! Finally found a vaccine") {
                     print("e ai")
                     self.stopTimer()
-                }
+                }.padding(.top, 50)
                 
                 Spacer()
             }
         }
+        .onAppear(perform: startTimer)
+        
     }
     
     func startTimer() {
         timerIsPaused = false
+        
+        year = components.year!
+        month = components.month!
+        day = components.day!
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { tempTimer in
-
+            
             if self.seconds == 59 {
                 self.seconds = 0
 
