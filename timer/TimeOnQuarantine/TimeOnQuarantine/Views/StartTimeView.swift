@@ -29,12 +29,12 @@ struct StartTimeView: View {
                     NavigationLink(destination: QuarantineDurationView(date: self.quarantineDate)) {
                         TitleDefault(
                             width: geometry.size.width * 0.7,
-                            title: "NEXT")
+                            title: "Begin suffering")
                     }
                     
                     Spacer()
                 }
-                .navigationBarTitle("Quarantine Timer", displayMode: .inline)
+                .navigationBarTitle("Quarantine Time", displayMode: .inline)
             }
         }
     }

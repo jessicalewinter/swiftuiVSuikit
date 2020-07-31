@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091380B924D1AB230044F427 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091380B824D1AB230044F427 /* DayView.swift */; };
-		091380BB24D1AF130044F427 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091380BA24D1AF130044F427 /* YearView.swift */; };
+		091380BB24D1AF130044F427 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091380BA24D1AF130044F427 /* DateView.swift */; };
 		0925150524D1A209009E486D /* ButtonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925150424D1A209009E486D /* ButtonDefault.swift */; };
 		094AB1E124D0E475003B724A /* StartTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AB1E024D0E475003B724A /* StartTimeView.swift */; };
 		094AB1E324D0EDF1003B724A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AB1E224D0EDF1003B724A /* TestView.swift */; };
@@ -23,8 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		091380B824D1AB230044F427 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		091380BA24D1AF130044F427 /* YearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearView.swift; sourceTree = "<group>"; };
+		091380BA24D1AF130044F427 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		0925150424D1A209009E486D /* ButtonDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDefault.swift; sourceTree = "<group>"; };
 		094AB1E024D0E475003B724A /* StartTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTimeView.swift; sourceTree = "<group>"; };
 		094AB1E224D0EDF1003B724A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -51,15 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		094AB1E624D11561003B724A /* Title */ = {
+		094AB1E624D11561003B724A /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				094AB1E724D11595003B724A /* TitleDefault.swift */,
 				0925150424D1A209009E486D /* ButtonDefault.swift */,
-				091380B824D1AB230044F427 /* DayView.swift */,
-				091380BA24D1AF130044F427 /* YearView.swift */,
+				091380BA24D1AF130044F427 /* DateView.swift */,
 			);
-			path = Title;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		09D95D4F24D1283500A947C3 /* Views */ = {
@@ -92,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				09D95D4F24D1283500A947C3 /* Views */,
-				094AB1E624D11561003B724A /* Title */,
+				094AB1E624D11561003B724A /* Components */,
 				09E52BE924C8E4D40041C892 /* AppDelegate.swift */,
 				09E52BEB24C8E4D40041C892 /* SceneDelegate.swift */,
 				094AB1E224D0EDF1003B724A /* TestView.swift */,
@@ -184,7 +181,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				094AB1E524D11476003B724A /* QuarantineDurationView.swift in Sources */,
-				091380B924D1AB230044F427 /* DayView.swift in Sources */,
 				0925150524D1A209009E486D /* ButtonDefault.swift in Sources */,
 				094AB1E324D0EDF1003B724A /* TestView.swift in Sources */,
 				09E52BEA24C8E4D40041C892 /* AppDelegate.swift in Sources */,
@@ -192,7 +188,7 @@
 				094AB1E824D11595003B724A /* TitleDefault.swift in Sources */,
 				09E52BEC24C8E4D40041C892 /* SceneDelegate.swift in Sources */,
 				09E52BEE24C8E4D40041C892 /* ContentView.swift in Sources */,
-				091380BB24D1AF130044F427 /* YearView.swift in Sources */,
+				091380BB24D1AF130044F427 /* DateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +329,7 @@
 				DEVELOPMENT_TEAM = FG6BFSTBUF;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TimeOnQuarantine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,6 +350,7 @@
 				DEVELOPMENT_TEAM = FG6BFSTBUF;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TimeOnQuarantine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

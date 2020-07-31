@@ -1,5 +1,5 @@
 //
-//  DayView.swift
+//  DateView.swift
 //  TimeOnQuarantine
 //
 //  Created by Jessica Lewinter on 29/07/20.
@@ -8,26 +8,28 @@
 
 import SwiftUI
 
-struct DayView: View {
+struct DateView: View {
     var number: Int
     var title: String
+    var fontType: Font
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .center) {
                 Text("\(self.number)")
                     .frame(maxWidth: geometry.size.width*0.9)
-                    .font(.largeTitle)
+                    .font(self.fontType.bold())
+                    
                 Text("\(self.title)")
                 .frame(maxWidth: geometry.size.width*0.9)
-                .font(.largeTitle)
+                    .font(self.fontType)
             }
         }
     }
 }
 
-struct DayView_Previews: PreviewProvider {
+struct DateView_Previews: PreviewProvider {
     static var previews: some View {
-        DayView(number: 10, title: "hrs.")
+        DateView(number: 10, title: "mnth", fontType: .title)
     }
 }

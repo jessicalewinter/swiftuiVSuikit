@@ -38,8 +38,6 @@ struct QuarantineDurationView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                
-                
                 Text("Quarantine duration")
                 .font(.title)
                 .padding(.vertical, 20)
@@ -59,23 +57,23 @@ struct QuarantineDurationView: View {
                 
                 
                 HStack {
-                    YearView(number: self.year, title: "year")
+                    DateView(number: self.year, title: "yr", fontType: .title)
                     Text(":")
                         .font(.title)
-                    YearView(number: self.month, title: "month")
+                    DateView(number: self.month, title: "mth", fontType: .title)
                     Text(":")
                         .font(.title)
-                    YearView(number: self.day, title: "day")
+                    DateView(number: self.day, title: "day", fontType: .title)
                 }.frame(height: 100)
                 
                 HStack {
-                    DayView(number: self.hours, title: "hrs")
+                    DateView(number: self.hours, title: "hrs", fontType: .largeTitle)
                     Text(":")
                         .font(.largeTitle)
-                    DayView(number: self.minutes, title: "min")
+                    DateView(number: self.minutes, title: "min", fontType: .largeTitle)
                     Text(":")
                         .font(.largeTitle)
-                    DayView(number: self.seconds, title: "sec")
+                    DateView(number: self.seconds, title: "sec", fontType: .largeTitle)
                 }.frame(height: 100)
                 
                 
@@ -92,8 +90,6 @@ struct QuarantineDurationView: View {
     }
     
     func startTimer() {
-        timerIsPaused = false
-        
         year = components.year!
         month = components.month!
         day = components.day!
@@ -116,15 +112,14 @@ struct QuarantineDurationView: View {
     }
 
     func stopTimer(){
-    timerIsPaused = true
-    timer?.invalidate()
-    timer = nil
+        timer?.invalidate()
+        timer = nil
     }
 
     func restartTimer(){
-    hours = 0
-    minutes = 0
-    seconds = 0
+        hours = 0
+        minutes = 0
+        seconds = 0
     }
 }
 
