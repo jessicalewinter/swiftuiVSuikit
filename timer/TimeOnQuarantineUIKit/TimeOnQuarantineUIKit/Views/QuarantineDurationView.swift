@@ -9,16 +9,28 @@
 import UIKit
 
 class QuarantineDurationView: UIView {
-    
-    var date: Date
+    var date: Date?
     
     var year: Int = 0
     var month: Int = 0
     var day: Int = 0
     
-    var hours: Int = 0
-    var minutes: Int = 0
-    var seconds: Int = 0
+    var hours: Int = 0 {
+        didSet {
+            self.startTimer()
+        }
+    }
+    var minutes: Int = 0 {
+        didSet {
+            self.startTimer()
+        }
+    }
+    
+    var seconds: Int = 0 {
+        didSet {
+            self.startTimer()
+        }
+    }
     
     var timer: Timer? = nil
     
@@ -28,11 +40,11 @@ class QuarantineDurationView: UIView {
         return formatter
     }()
     
-    var components: DateComponents {
+    lazy var components: DateComponents = {
         let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents([.calendar, .year, .month, .day, .hour, .minute, .second], from: date, to: Date())
+        let components = calendar.dateComponents([.calendar, .year, .month, .day, .hour, .minute, .second], from: date!, to: Date())
         return components
-    }
+    }()
     
     lazy var titleText: UILabel = UILabel(with: "Quarantine Duration", ofType: .title1, and: .black)
     
@@ -40,18 +52,47 @@ class QuarantineDurationView: UIView {
     
     lazy var detailDateText: UILabel = {
         let label = UILabel(with: "Isolated since", ofType: .body, and: .gray)
-        label.text = self.dateFormatter.string(from: date)
+        label.text = self.dateFormatter.string(from: date!)
         return label
     }()
+    
+    lazy var upperStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        return stack
+    }()
+    
+    lazy var downStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        return stack
+    }()
+    
+    lazy var yearView: DateView = DateView(text: "\(self.components.year ?? 0)", detail: "yr", type: .title1)
+    lazy var monthView: DateView = DateView(text: "\(self.components.month ?? 0)", detail: "mth", type: .title1)
+    lazy var dayView: DateView = DateView(text: "\(self.components.day ?? 0)", detail: "days", type: .title1)
+    
+    lazy var hourView: DateView = DateView(text: "\(self.components.hour ?? 0)", detail: "hrs", type: .largeTitle)
+    lazy var minuteView: DateView = DateView(text: "\(self.components.minute ?? 0)", detail: "min", type: .largeTitle)
+    lazy var secondView: DateView = DateView(text: "\(self.seconds)", detail: "sec", type: .largeTitle)
     
     init(date: Date) {
         self.date = date
         super.init(frame: .zero)
         setupView()
+        self.startTimer()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func createSeparator(type: UIFont.TextStyle) -> UILabel {
+        return UILabel(with: ":", ofType: type, and: .black)
     }
     
     func startTimer() {
@@ -93,6 +134,18 @@ extension QuarantineDurationView: ViewCodable {
         addSubview(titleText)
         addSubview(detailText)
         addSubview(detailDateText)
+        addSubview(upperStackView)
+        addSubview(downStackView)
+        upperStackView.addArrangedSubview(yearView)
+        upperStackView.addArrangedSubview(createSeparator(type: .title1))
+        upperStackView.addArrangedSubview(monthView)
+        upperStackView.addArrangedSubview(createSeparator(type: .title1))
+        upperStackView.addArrangedSubview(dayView)
+        downStackView.addArrangedSubview(hourView)
+        downStackView.addArrangedSubview(createSeparator(type: .largeTitle))
+        downStackView.addArrangedSubview(minuteView)
+        downStackView.addArrangedSubview(createSeparator(type: .largeTitle))
+        downStackView.addArrangedSubview(secondView)
     }
     
     func setupConstraints() {
@@ -112,6 +165,18 @@ extension QuarantineDurationView: ViewCodable {
             detailDateText.topAnchor.constraint(equalTo: detailText.bottomAnchor, constant: 10),
             detailDateText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             detailDateText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            upperStackView.topAnchor.constraint(equalTo: detailDateText.bottomAnchor, constant: 30),
+            upperStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            upperStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            downStackView.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 30),
+            downStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            downStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50)
         ])
     }
     

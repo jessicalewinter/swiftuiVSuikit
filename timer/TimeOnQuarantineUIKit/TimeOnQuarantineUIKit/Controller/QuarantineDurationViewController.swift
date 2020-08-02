@@ -9,12 +9,10 @@
 import UIKit
 
 class QuarantineDurationViewController: UIViewController {
-    var date: Date
+    var quarantineView: QuarantineDurationView
     
-    lazy var quarantineDurationView: QuarantineDurationView = QuarantineDurationView(date: date)
-    
-    init(date: Date) {
-        self.date = date
+    init(quarantineView: QuarantineDurationView) {
+        self.quarantineView = quarantineView
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,6 +26,6 @@ class QuarantineDurationViewController: UIViewController {
     }
     
     override func loadView() {
-        view = quarantineDurationView
+        view = self.quarantineView
     }
 }

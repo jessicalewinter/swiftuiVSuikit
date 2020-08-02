@@ -22,7 +22,7 @@ class SmartTimeView: UIView {
         let datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(handleDate), for: .touchUpInside)
+        datePicker.addTarget(self, action: #selector(handleDate), for: .valueChanged)
         return datePicker
     }()
     
@@ -33,10 +33,7 @@ class SmartTimeView: UIView {
     }()
     
     @objc func handleDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        let selectedDate = dateFormatter.string(from: startDate.date)
-        print(selectedDate)
+        self.date = startDate.date
     }
     
     @objc func goToCounter() {
@@ -44,7 +41,9 @@ class SmartTimeView: UIView {
     }
     
     func setupController() {
-        let quarantineDurationController = QuarantineDurationViewController(date: date!)
+        let view = QuarantineDurationView(date: self.date!)
+        
+        let quarantineDurationController = QuarantineDurationViewController(quarantineView: view)
         presentView?(quarantineDurationController)
     }
     

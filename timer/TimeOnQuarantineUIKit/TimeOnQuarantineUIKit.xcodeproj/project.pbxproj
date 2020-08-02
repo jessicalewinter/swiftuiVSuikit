@@ -21,7 +21,6 @@
 		09CCFECC24D2110800D2A353 /* UIButton+build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CCFECB24D2110800D2A353 /* UIButton+build.swift */; };
 		09F665F124D4484D0055D424 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F665F024D4484D0055D424 /* DateView.swift */; };
 		09F665F324D463EF0055D424 /* UIFont+traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F665F224D463EF0055D424 /* UIFont+traits.swift */; };
-		09F665F524D4B3520055D424 /* CounterDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F665F424D4B3520055D424 /* CounterDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		09CCFECB24D2110800D2A353 /* UIButton+build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+build.swift"; sourceTree = "<group>"; };
 		09F665F024D4484D0055D424 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		09F665F224D463EF0055D424 /* UIFont+traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+traits.swift"; sourceTree = "<group>"; };
-		09F665F424D4B3520055D424 /* CounterDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +91,6 @@
 			children = (
 				092F931724D1BB4A00A36953 /* SmartTimeView.swift */,
 				09CCFEBE24D1BF3D00D2A353 /* QuarantineDurationView.swift */,
-				09F665F424D4B3520055D424 /* CounterDateView.swift */,
 				09F665F024D4484D0055D424 /* DateView.swift */,
 			);
 			path = Views;
@@ -196,7 +193,6 @@
 				09F665F324D463EF0055D424 /* UIFont+traits.swift in Sources */,
 				09CCFEC924D1E07100D2A353 /* UILabel+build.swift in Sources */,
 				09CCFEC424D1C02F00D2A353 /* StartTimeViewController.swift in Sources */,
-				09F665F524D4B3520055D424 /* CounterDateView.swift in Sources */,
 				09CCFEBF24D1BF3D00D2A353 /* QuarantineDurationView.swift in Sources */,
 				092F931824D1BB4A00A36953 /* SmartTimeView.swift in Sources */,
 				09CCFEC624D1C04200D2A353 /* QuarantineDurationViewController.swift in Sources */,

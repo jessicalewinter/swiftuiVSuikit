@@ -19,7 +19,7 @@ class DateView: UIView {
     }()
     
     lazy var detailText: UILabel = {
-        let label = UILabel(with: self.text, ofType: self.type, and: .black)
+        let label = UILabel(with: self.detail, ofType: self.type, and: .black)
         return label
     }()
     
@@ -46,12 +46,12 @@ extension DateView: ViewCodable {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             dateText.topAnchor.constraint(equalTo: topAnchor),
-            dateText.centerYAnchor.constraint(equalTo: centerYAnchor)
+            dateText.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
             detailText.topAnchor.constraint(equalTo: dateText.bottomAnchor),
-            detailText.centerYAnchor.constraint(equalTo: centerYAnchor),
+            detailText.centerXAnchor.constraint(equalTo: centerXAnchor),
             detailText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }

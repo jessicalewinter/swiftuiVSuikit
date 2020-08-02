@@ -10,10 +10,7 @@ import UIKit
 
 class StartTimeViewController: UIViewController {
     
-    lazy var smartTimeView: SmartTimeView = {
-        let view = SmartTimeView()
-        return view
-    }()
+    lazy var smartTimeView: SmartTimeView = SmartTimeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
