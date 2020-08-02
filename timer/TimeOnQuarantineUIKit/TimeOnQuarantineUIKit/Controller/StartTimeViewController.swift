@@ -8,6 +8,17 @@
 
 import UIKit
 
+class TimerUpdate {
+    static let shared = TimerUpdate()
+    
+    init() {
+        seconds = 0
+    }
+    
+    var seconds: Int
+}
+
+
 class StartTimeViewController: UIViewController {
     
     lazy var smartTimeView: SmartTimeView = SmartTimeView()

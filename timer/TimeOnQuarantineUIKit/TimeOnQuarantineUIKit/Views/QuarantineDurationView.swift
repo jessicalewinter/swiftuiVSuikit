@@ -15,24 +15,14 @@ class QuarantineDurationView: UIView {
     var month: Int = 0
     var day: Int = 0
     
-    var hours: Int = 0 {
-        didSet {
-            self.startTimer()
-        }
-    }
-    var minutes: Int = 0 {
-        didSet {
-            self.startTimer()
-        }
-    }
+    var hours: Int = 0
+    var minutes: Int = 0
     
-    var seconds: Int = 0 {
-        didSet {
-            self.startTimer()
-        }
-    }
+    var seconds: Int = 0
     
     var timer: Timer? = nil
+    
+    var updateUI: (() -> Void)?
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -77,7 +67,7 @@ class QuarantineDurationView: UIView {
     lazy var dayView: DateView = DateView(text: "\(self.components.day ?? 0)", detail: "days", type: .title1)
     
     lazy var hourView: DateView = DateView(text: "\(self.components.hour ?? 0)", detail: "hrs", type: .largeTitle)
-    lazy var minuteView: DateView = DateView(text: "\(self.components.minute ?? 0)", detail: "min", type: .largeTitle)
+    lazy var minuteView: DateView = DateView(text: "\(self.minutes)", detail: "min", type: .largeTitle)
     lazy var secondView: DateView = DateView(text: "\(self.seconds)", detail: "sec", type: .largeTitle)
     
     init(date: Date) {
@@ -96,11 +86,15 @@ class QuarantineDurationView: UIView {
     }
     
     func startTimer() {
+        
         year = components.year!
         month = components.month!
         day = components.day!
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { tempTimer in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] tempTimer in
+            guard let self = self else {return}
+            TimerUpdate.shared.seconds = self.seconds
+            self.updateUI?()
             
             if self.seconds == 59 {
                 self.seconds = 0
@@ -112,21 +106,22 @@ class QuarantineDurationView: UIView {
                     self.minutes += 1
                 }
             } else {
-                self.seconds += 1
+               self.seconds += 1
             }
         }
     }
 
-    func stopTimer(){
+    func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
 
-    func restartTimer(){
+    func restartTimer() {
         hours = 0
         minutes = 0
         seconds = 0
     }
+
 }
 
 extension QuarantineDurationView: ViewCodable {
