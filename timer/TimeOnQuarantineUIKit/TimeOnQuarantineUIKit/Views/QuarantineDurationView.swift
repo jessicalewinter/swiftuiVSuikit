@@ -87,27 +87,31 @@ class QuarantineDurationView: UIView {
     
     func startTimer() {
         
-        year = components.year!
-        month = components.month!
-        day = components.day!
+        year += components.year!
+        month += components.month!
+        day += components.day!
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] tempTimer in
             guard let self = self else {return}
             TimerUpdate.shared.seconds = self.seconds
             self.updateUI?()
+            self.update()
             
-            if self.seconds == 59 {
-                self.seconds = 0
-
-                if self.minutes == 59 {
-                    self.minutes = 0
-                    self.hours += 1
-                } else {
-                    self.minutes += 1
-                }
-            } else {
-               self.seconds += 1
-            }
+            self.seconds += 1
+            self.minutes +=  self.seconds / 60
+            self.hours += self.minutes / 60
+            
+//            self.day += self.hours / 24
+//            self.month += self.day / 30
+//            self.year += self.month / 12
+            
+            let calendar = Calendar(identifier: .gregorian)
+            let interval = TimeInterval(integerLiteral: Int64(self.seconds))
+            let newDate = Date(timeInterval: interval, since: self.date!)
+            let newComponents = calendar.dateComponents([.calendar, .year, .month, .day, .hour, .minute, .second], from: newDate , to: Date())
+            self.day = newComponents.day!
+            self.month = newComponents.month!
+            self.year = newComponents.year!
         }
     }
 
@@ -120,6 +124,16 @@ class QuarantineDurationView: UIView {
         hours = 0
         minutes = 0
         seconds = 0
+    }
+    
+    func update() {
+        self.secondView.dateText.text = "\(self.seconds)"
+        self.minuteView.dateText.text = "\(self.minutes)"
+        self.hourView.dateText.text = "\(self.hours)"
+        
+        self.dayView.dateText.text = "\(self.day)"
+        self.monthView.dateText.text = "\(self.month)"
+        self.yearView.dateText.text = "\(self.year)"
     }
 
 }

@@ -25,7 +25,7 @@ class QuarantineDurationViewController: UIViewController {
 
         self.quarantineView.updateUI = {
             self.loadView()
-            self.quarantineView.secondView.text = "\(TimerUpdate.shared.seconds)"
+//            self.quarantineView.secondView.dateText.text = "\(TimerUpdate.shared.seconds)"
         }
     }
 
