@@ -21,6 +21,7 @@ class QuarantineDurationView: UIView {
     var seconds: Int = 0
     
     var timer: Timer? = nil
+    var currentDate: Date!
     
     var updateUI: (() -> Void)?
     
@@ -70,11 +71,16 @@ class QuarantineDurationView: UIView {
     lazy var minuteView: DateView = DateView(text: "\(self.minutes)", detail: "min", type: .largeTitle)
     lazy var secondView: DateView = DateView(text: "\(self.seconds)", detail: "sec", type: .largeTitle)
     
+    lazy var stopAction: UIButton = {
+        let button = UIButton(with: "Stop! Finally found vaccine", and: .orange)
+        button.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
+        return button
+    }()
+    
     init(date: Date) {
         self.date = date
         super.init(frame: .zero)
         setupView()
-        self.startTimer()
     }
     
     required init?(coder: NSCoder) {
@@ -87,35 +93,30 @@ class QuarantineDurationView: UIView {
     
     func startTimer() {
         
-        year += components.year!
-        month += components.month!
-        day += components.day!
+        year = components.year!
+        month = components.month!
+        day = components.day!
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] tempTimer in
-            guard let self = self else {return}
-            TimerUpdate.shared.seconds = self.seconds
-            self.updateUI?()
-            self.update()
-            
-            self.seconds += 1
-            self.minutes +=  self.seconds / 60
-            self.hours += self.minutes / 60
-            
-//            self.day += self.hours / 24
-//            self.month += self.day / 30
-//            self.year += self.month / 12
-            
-            let calendar = Calendar(identifier: .gregorian)
-            let interval = TimeInterval(integerLiteral: Int64(self.seconds))
-            let newDate = Date(timeInterval: interval, since: self.date!)
-            let newComponents = calendar.dateComponents([.calendar, .year, .month, .day, .hour, .minute, .second], from: newDate , to: Date())
-            self.day = newComponents.day!
-            self.month = newComponents.month!
-            self.year = newComponents.year!
-        }
+        self.updateUI?()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerSelec), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerSelec() {
+        self.update()
+
+        currentDate = Date(timeInterval: TimeInterval.init(exactly: -2)!, since: Date())
+        let diffDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: currentDate, to: date!)
+
+        self.year = abs(diffDateComponents.year!)
+        self.month = abs(diffDateComponents.month!)
+        self.day = abs(diffDateComponents.day!)
+        self.hours = abs(diffDateComponents.hour!)
+        self.minutes = abs(diffDateComponents.minute!)
+        self.seconds = abs(diffDateComponents.second!)
+        
     }
 
-    func stopTimer() {
+    @objc func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
@@ -145,6 +146,7 @@ extension QuarantineDurationView: ViewCodable {
         addSubview(detailDateText)
         addSubview(upperStackView)
         addSubview(downStackView)
+        addSubview(stopAction)
         upperStackView.addArrangedSubview(yearView)
         upperStackView.addArrangedSubview(createSeparator(type: .title1))
         upperStackView.addArrangedSubview(monthView)
@@ -186,6 +188,13 @@ extension QuarantineDurationView: ViewCodable {
             downStackView.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 30),
             downStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
             downStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            stopAction.topAnchor.constraint(equalTo: downStackView.bottomAnchor, constant: 20),
+            stopAction.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stopAction.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
+            stopAction.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     

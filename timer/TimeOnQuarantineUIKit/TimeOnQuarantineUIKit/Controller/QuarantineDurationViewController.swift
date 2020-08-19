@@ -22,19 +22,12 @@ class QuarantineDurationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.quarantineView.updateUI = {
-            self.loadView()
-//            self.quarantineView.secondView.dateText.text = "\(TimerUpdate.shared.seconds)"
-        }
+        navigationItem.hidesBackButton = true
+        self.quarantineView.startTimer()
     }
 
-    
     override func loadView() {
         view = quarantineView
     }
-    
-    @objc func updateText(notification: NSNotification) {
-        quarantineView.secondView.text += "\(1)"
-    }
+
 }
