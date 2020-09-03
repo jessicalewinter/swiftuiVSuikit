@@ -21,10 +21,10 @@ class TabBarController: UITabBarController {
         let dailyController = UINavigationController(rootViewController: DailyViewController())
         dailyController.tabBarItem = UITabBarItem(title: "Daily", image: UIImage(named: "water-glass"), tag: 0)
         
-        let reportController = UINavigationController(rootViewController: ReportViewController())
-        reportController.tabBarItem = UITabBarItem(title: "Report", image: UIImage(named: "graph"), tag: 1)
+//        let reportController = UINavigationController(rootViewController: ReportViewController())
+//        reportController.tabBarItem = UITabBarItem(title: "Report", image: UIImage(named: "graph"), tag: 1)
         
-        let controllers = [dailyController, reportController]
+        let controllers = [dailyController]
         viewControllers = controllers
     }
 }
