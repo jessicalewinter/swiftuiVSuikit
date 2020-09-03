@@ -58,7 +58,7 @@ class DailyViewController: DefaultViewController {
         let view = AddWaterView()
         view.translatesAutoresizingMaskIntoConstraints = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(addWater))
-        view.backgroundColor = .mainBlue
+        view.backgroundColor = .trackStrokeColor
         view.addGestureRecognizer(tap)
         return view
     }()
@@ -111,7 +111,7 @@ class DailyViewController: DefaultViewController {
         
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor.mainBlue.cgColor
+        trackLayer.strokeColor = UIColor.trackStrokeColor.cgColor
         trackLayer.fillColor = UIColor.white.cgColor
         trackLayer.lineWidth = 20
         trackLayer.lineCap = .round
@@ -167,7 +167,6 @@ class DailyViewController: DefaultViewController {
     
     
     @objc private func addWater() {
-        print("Attempting to animate view")
         animateCircle()
     }
     

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092F8F13250185A100B776A7 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F12250185A100B776A7 /* DailyView.swift */; };
+		092F8F152501864C00B776A7 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F142501864C00B776A7 /* AppView.swift */; };
+		092F8F182501916E00B776A7 /* Color+actionColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F172501916E00B776A7 /* Color+actionColors.swift */; };
+		092F8F1B2501939D00B776A7 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F1A2501939D00B776A7 /* LabelView.swift */; };
+		092F8F1D250193A500B776A7 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F1C250193A500B776A7 /* ShapeView.swift */; };
+		092F8F1F250193AE00B776A7 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F1E250193AE00B776A7 /* TrackView.swift */; };
+		092F8F21250193B900B776A7 /* PulsatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F8F20250193B900B776A7 /* PulsatingView.swift */; };
 		09F6662324D7A6050055D424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F6662224D7A6050055D424 /* AppDelegate.swift */; };
 		09F6662524D7A6050055D424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F6662424D7A6050055D424 /* SceneDelegate.swift */; };
 		09F6662724D7A6050055D424 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F6662624D7A6050055D424 /* ContentView.swift */; };
@@ -16,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092F8F12250185A100B776A7 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		092F8F142501864C00B776A7 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		092F8F172501916E00B776A7 /* Color+actionColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+actionColors.swift"; sourceTree = "<group>"; };
+		092F8F1A2501939D00B776A7 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		092F8F1C250193A500B776A7 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		092F8F1E250193AE00B776A7 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		092F8F20250193B900B776A7 /* PulsatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsatingView.swift; sourceTree = "<group>"; };
 		09F6661F24D7A6050055D424 /* WaterReminderSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterReminderSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F6662224D7A6050055D424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09F6662424D7A6050055D424 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +51,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092F8F112501858900B776A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				092F8F192501938C00B776A7 /* Components */,
+				092F8F12250185A100B776A7 /* DailyView.swift */,
+				092F8F142501864C00B776A7 /* AppView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		092F8F162501914700B776A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				092F8F172501916E00B776A7 /* Color+actionColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		092F8F192501938C00B776A7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				092F8F1A2501939D00B776A7 /* LabelView.swift */,
+				092F8F1C250193A500B776A7 /* ShapeView.swift */,
+				092F8F1E250193AE00B776A7 /* TrackView.swift */,
+				092F8F20250193B900B776A7 /* PulsatingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		09F6661624D7A6050055D424 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +99,8 @@
 		09F6662124D7A6050055D424 /* WaterReminderSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				092F8F162501914700B776A7 /* Extensions */,
+				092F8F112501858900B776A7 /* Views */,
 				09F6662224D7A6050055D424 /* AppDelegate.swift */,
 				09F6662424D7A6050055D424 /* SceneDelegate.swift */,
 				09F6662624D7A6050055D424 /* ContentView.swift */,
@@ -146,9 +191,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092F8F13250185A100B776A7 /* DailyView.swift in Sources */,
 				09F6662324D7A6050055D424 /* AppDelegate.swift in Sources */,
+				092F8F1B2501939D00B776A7 /* LabelView.swift in Sources */,
 				09F6662524D7A6050055D424 /* SceneDelegate.swift in Sources */,
+				092F8F1F250193AE00B776A7 /* TrackView.swift in Sources */,
+				092F8F152501864C00B776A7 /* AppView.swift in Sources */,
+				092F8F21250193B900B776A7 /* PulsatingView.swift in Sources */,
 				09F6662724D7A6050055D424 /* ContentView.swift in Sources */,
+				092F8F1D250193A500B776A7 /* ShapeView.swift in Sources */,
+				092F8F182501916E00B776A7 /* Color+actionColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

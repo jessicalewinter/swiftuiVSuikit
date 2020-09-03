@@ -1,27 +1,27 @@
 //
-//  ContentView.swift
+//  AppView.swift
 //  WaterReminderSwiftUI
 //
-//  Created by Jessica Lewinter on 02/08/20.
+//  Created by Jessica Lewinter on 03/09/20.
 //  Copyright © 2020 Jessica Lewinter. All rights reserved.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct AppView: View {
     var body: some View {
         TabView {
             DailyView()
                 .tabItem {
-                    Image(systemName: "list.dash")
-                    Text("Menu")
+                    Image("water-glass")
+                    Text("Daily")
             }
-        }
+        }.accentColor(.black)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AppView()
     }
 }
