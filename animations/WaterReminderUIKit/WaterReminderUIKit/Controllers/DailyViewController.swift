@@ -13,7 +13,7 @@ class DailyViewController: DefaultViewController {
     var initialDailyWater: CGFloat = 0
     var percentage: CGFloat = 0
     
-    let shapeLayer = CAShapeLayer()
+    var shapeLayer: CAShapeLayer!
     var pulsatingLayer: CAShapeLayer!
     
     override func viewDidLoad() {
@@ -94,41 +94,33 @@ class DailyViewController: DefaultViewController {
         ])
     }
     
+    func createShape(center: CGPoint, strokeColor: UIColor, fillColor: UIColor, lineWidth: CGFloat, endAngle: CGFloat = 2 * CGFloat.pi, strokeEnd: CGFloat = 1) -> CAShapeLayer {
+        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: endAngle, clockwise: true)
+        
+        let shape = CAShapeLayer()
+        shape.path = circularPath.cgPath
+        shape.strokeColor = strokeColor.cgColor
+        shape.fillColor = fillColor.cgColor
+        shape.lineWidth = lineWidth
+        shape.lineCap = .round
+        shape.strokeEnd = strokeEnd
+        return shape
+    }
+    
     func createShapeLayer() {
         let center = view.center
         
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
-        
-        pulsatingLayer = CAShapeLayer()
-        pulsatingLayer.path = circularPath.cgPath
-        pulsatingLayer.strokeColor = UIColor.clear.cgColor
-        pulsatingLayer.fillColor = UIColor.pulsatingFillColor.cgColor
-        pulsatingLayer.lineWidth = 10
-        pulsatingLayer.lineCap = .round
-        pulsatingLayer.strokeEnd = 1
+        pulsatingLayer = createShape(center: .zero, strokeColor: .clear, fillColor: .pulsatingFillColor, lineWidth: 10)
         pulsatingLayer.position = center
         view.layer.addSublayer(pulsatingLayer)
-        
-        let trackLayer = CAShapeLayer()
-        trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor.trackStrokeColor.cgColor
-        trackLayer.fillColor = UIColor.white.cgColor
-        trackLayer.lineWidth = 20
-        trackLayer.lineCap = .round
-        trackLayer.strokeEnd = 1
+ 
+        let trackLayer = createShape(center: .zero, strokeColor: .trackStrokeColor, fillColor: .white, lineWidth: 20)
         trackLayer.position = center
         view.layer.addSublayer(trackLayer)
         
-        
         animatePulsatingLayer()
-        
-        let percentageCircularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 3 / 2 * CGFloat.pi, clockwise: true)
-        shapeLayer.path = percentageCircularPath.cgPath
-        shapeLayer.strokeColor = UIColor.outlineStrokeColor.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 20
-        shapeLayer.lineCap = .round
-        shapeLayer.strokeEnd = 0
+
+        shapeLayer = createShape(center: center, strokeColor: .outlineStrokeColor, fillColor: .clear, lineWidth: 20, endAngle: 3 / 2 * CGFloat.pi, strokeEnd: 0)
         view.layer.addSublayer(shapeLayer)
     }
     
@@ -137,11 +129,8 @@ class DailyViewController: DefaultViewController {
 
         percentage = initialDailyWater / dailyWaterRecommended
         shapeLayer.strokeEnd = percentage
-        print(percentage)
         
-        UIView.animate(withDuration: 1) {
-            self.percentageLabel.text = "\(Int(self.percentage * 100))%"
-        }
+        self.percentageLabel.text = "\(Int(self.percentage * 100))%"
         
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = percentage
