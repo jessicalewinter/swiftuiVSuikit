@@ -14,17 +14,21 @@ struct LabelView: View {
     var body: some View {
         ZStack {
             if percentage == 0 {
-                Text("Start")
-                    .font(.system(size: 32))
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
+                InnerLabelView(text: "Start")
             } else {
-                Text("\(Int(percentage))%")
-                    .font(.system(size: 32))
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
+                InnerLabelView(text: "\(Int(percentage))%")
             }
         }
+    }
+}
+
+struct InnerLabelView: View {
+    var text: String
+    var body: some View {
+        Text("Start")
+            .font(.system(size: 32))
+            .fontWeight(.bold)
+            .foregroundColor(.black)
     }
 }
 
