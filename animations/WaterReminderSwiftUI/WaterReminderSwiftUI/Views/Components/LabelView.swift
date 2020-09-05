@@ -25,7 +25,7 @@ struct LabelView: View {
 struct InnerLabelView: View {
     var text: String
     var body: some View {
-        Text("Start")
+        Text(text)
             .font(.system(size: 32))
             .fontWeight(.bold)
             .foregroundColor(.black)
