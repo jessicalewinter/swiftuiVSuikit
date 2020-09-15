@@ -12,7 +12,7 @@ Essa aplicação apresenta um catálogo de músicas dos Beatles, com um total de
   <figure align='center'>
     <img src='screenshots/app1.png' alt='App 1: Catálogo de Músicas dos Beatles'  width="200" height="400" />
     <br />
-    <figcaption>Figura 1. Capturas de tela do App 1</figcaption>
+    <figcaption><b>Figura 1. Capturas de tela do App 1</b></figcaption>
   </figure>
 </div>
 
@@ -47,7 +47,7 @@ Essa aplicação apresenta o catálogo de a ́lbuns dos Beatles, um total de 28,
   <figure align='center'>
     <img src='screenshots/app2.png' alt='App 2: Catálogo de Álbuns dos Beatles' width="200" height="400" />
     <br />
-    <figcaption>Figura 2. Capturas de tela do App 2</figcaption>
+    <figcaption><b>Figura 2. Capturas de tela do App 2</b></figcaption>
   </figure>
 </div>
 
@@ -82,7 +82,7 @@ Essa aplicação conta o tempo de duração de uma quarentena em anos, meses, di
   <figure align='center'>
     <img src='screenshots/app3.png' alt='App 3: Tempo na Quarentena' width="200" height="400" />
     <br />
-    <figcaption>Figura 3. Capturas de tela do App 3</figcaption>
+    <figcaption><b>Figura 3. Capturas de tela do App 3</b></figcaption>
   </figure>
 </div>
 
@@ -124,7 +124,7 @@ Essa aplicação conta a quantidade de água que o usuário tomou naquele dia ba
   <figure align='center'>
     <img src='screenshots/app4.png' alt=' App 4: Lembrete de Água' width="200" height="400" />
     <br />
-    <figcaption>Figura 4. Capturas de tela do App 4</figcaption>
+    <figcaption><b>Figura 4. Capturas de tela do App 4</b></figcaption>
   </figure>
 </div>
 
