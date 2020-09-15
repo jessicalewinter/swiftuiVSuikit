@@ -11,13 +11,12 @@ Essa aplicação apresenta um catálogo de músicas dos Beatles, com um total de
 <div class="image-wrapper" >
   <figure align='center'>
     <img src='screenshots/app1.png' alt='App 1: Catálogo de Músicas dos Beatles'  width="200" height="400" />
-    <figcaption>Figura1. Capturas de tela do App 1</figcaption>
+    <br />
+    <figcaption>Figura 1. Capturas de tela do App 1</figcaption>
   </figure>
 </div>
 
-Para essa aplicação foram medidos o uso de CPU e memória, com a aplicação em descanso e após realizada a ação de rolagem até o final da lista. Os resultados de
-desempenho para a aplicação em UIKit e SwiftUI estão nas Tabelas 1 e 2, respectivamente. Os resultados para análise de quantidade de linhas de código estão na
-Tabela 3.
+Para essa aplicação foram medidos o uso de CPU e memória, com a aplicação em descanso e após realizada a ação de rolagem até o final da lista. Os resultados de desempenho para a aplicação em UIKit e SwiftUI estão nas Tabelas 1 e 2, respectivamente. Os resultados para análise de quantidade de linhas de código estão na Tabela 3.
 
 **Tabela 1. Resultados para o App 1 em UIKit**
 Estado | Uso de CPU | Uso de Memória
@@ -47,12 +46,12 @@ Essa aplicação apresenta o catálogo de a ́lbuns dos Beatles, um total de 28,
 <div class="image-wrapper" >
   <figure align='center'>
     <img src='screenshots/app2.png' alt='App 2: Catálogo de Álbuns dos Beatles' width="200" height="400" />
-    <figcaption>Capturas de tela do App 2</figcaption>
+    <br />
+    <figcaption>Figura 2. Capturas de tela do App 2</figcaption>
   </figure>
 </div>
 
-Para essa aplicação foi medido o uso de CPU e memória com a aplicação em descanso e após realizada a ação de rolagem até o final da lista. Os resultados para a
-aplicação em UIKit e SwiftUI estão nas Tabelas 4 e 5, respectivamente. Os resultados para análise de quantidade de linhas de código estão na Tabela 6.
+Para essa aplicação foi medido o uso de CPU e memória com a aplicação em descanso e após realizada a ação de rolagem até o final da lista. Os resultados para a aplicação em UIKit e SwiftUI estão nas Tabelas 4 e 5, respectivamente. Os resultados para análise de quantidade de linhas de código estão na Tabela 6.
 
 **Tabela 4. Resultados para o App 2 em UIKit**
 Estado | Uso de CPU | Uso de Memória
@@ -82,7 +81,8 @@ Essa aplicação conta o tempo de duração de uma quarentena em anos, meses, di
 <div class="image-wrapper" >
   <figure align='center'>
     <img src='screenshots/app3.png' alt='App 3: Tempo na Quarentena' width="200" height="400" />
-    <figcaption>Capturas de tela do App 3</figcaption>
+    <br />
+    <figcaption>Figura 3. Capturas de tela do App 3</figcaption>
   </figure>
 </div>
 
@@ -123,7 +123,8 @@ Essa aplicação conta a quantidade de água que o usuário tomou naquele dia ba
 <div class="image-wrapper" >
   <figure align='center'>
     <img src='screenshots/app4.png' alt=' App 4: Lembrete de Água' width="200" height="400" />
-    <figcaption>Capturas de tela do App 4</figcaption>
+    <br />
+    <figcaption>Figura 4. Capturas de tela do App 4</figcaption>
   </figure>
 </div>
 
